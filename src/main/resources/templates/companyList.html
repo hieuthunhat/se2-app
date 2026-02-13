@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Company List</title>
+</head>
+
+<body>
+
+  <div>
+    <h2>Company LIST</h2>
+    <div><a th:href="'/company/add'">Add company</a></div>
+
+    <table border="1">
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Image</th>
+        <th>Update</th>
+        <th>Delete</th>
+      </tr>
+
+      <tr th:each="company : ${companies}">
+        <td th:text="${company.id}"></td>
+
+        <td>
+          <a th:href="@{/company/{id}(id=${company.id})}" th:text="${company.name}">
+          </a>
+        </td>
+
+        <td>
+          <img th:src="${company.image}" width="100" height="100" />
+        </td>
+
+        <td>
+          <a th:href="@{/company/update/{id}(id=${company.id})}">
+            UPDATE
+          </a>
+        </td>
+
+        <td>
+          <a th:href="@{/company/delete/{id}(id=${company.id})}" onclick="return confirm('Are you sure?')">
+            DELETE
+          </a>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+<!-- companyDetail.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <title>Company Details</title>
+</head>
+
+<body>
+  <h1>Company Details</h1>
+  <a th:href="@{/company/list}">
+    <button type="button">Back</button>
+  </a>
+
+  <div>
+    <h2>Company Name: <span th:text="${company.name}"></span></h2>
+    <p>Address: <span th:text="${company.address}"></span></p>
+    <img th:src="@{${company.image}}" alt="Company Image" />
+  </div>
+
+  <h2>Employees</h2>
+  <ul>
+    <li th:each="employee : ${employees}">
+      <span th:text="${employee.name}">Employee Name</span>
+    </li>
+  </ul>
+</body>
+
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" 
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" 
+layout:decorate="layout"> 
+
+<head>
+  <meta charset="UTF-8">
+  <title>Employee List</title>
+</head>
+
+<body>
+
+  <div layout:fragment="content">
+    <h2>EMPLOYEE LIST</h2>
+    <div><a th:href="'/add'">Add employee</a></div>
+
+    <table border="1">
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Image</th>
+        <th>Update</th>
+        <th>Delete</th>
+      </tr>
+
+      <tr th:each="employee : ${employees}">
+        <td th:text="${employee.id}"></td>
+
+        <td>
+          <a th:href="@{/detail/{id}(id=${employee.id})}" th:text="${employee.name}">
+          </a>
+        </td>
+
+        <td>
+          <img th:src="${employee.image}" width="100" height="100" />
+        </td>
+
+        <td>
+          <a th:href="@{/update/{id}(id=${employee.id})}">
+            UPDATE
+          </a>
+        </td>
+
+        <td>
+          <a th:href="@{/delete/{id}(id=${employee.id})}" onclick="return confirm('Are you sure?')">
+            DELETE
+          </a>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+</body>
+
+</html>

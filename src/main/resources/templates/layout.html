@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Employee Management System</title>
+  <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+<body>
+  <nav>
+    <a href="/">Employee List</a>
+    <a href="/add">Add Employee</a>
+    <a href="/company/list">Company List</a>
+    <a href="/company/add">Add Company</a>
+  </nav>
+  <div layout:fragment="content">
+    <!-- content page will override this -->
+  </div>
+</body>
+
+</html>

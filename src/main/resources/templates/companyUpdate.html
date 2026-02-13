@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Update Company</title>
+</head>
+
+<body>
+  <div>
+    <h2>UPDATE COMPANY</h2>
+    <a th:href="@{/company/list}">
+      <button type="button">Back</button>
+    </a>
+
+    <form th:action="@{/company/save}" th:object="${company}" method="post">
+
+      <!-- Hidden ID -->
+      <input type="hidden" th:field="*{id}" />
+
+      <p>
+        <label>Company Name: </label>
+        <input type="text" th:field="*{name}" required />
+      </p>
+
+      <p>
+        <label>Company Image: </label>
+        <input type="text" th:field="*{image}" required />
+      </p>
+
+      <p>
+        <label>Company Address: </label>
+        <input type="text" th:field="*{address}" required />
+      </p>
+
+      <p>
+        <button type="submit">UPDATE</button>
+        <a th:href="@{/company/list}">
+          <button type="button">CANCEL</button>
+        </a>
+      </p>
+
+    </form>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html> 
+<html lang="en" xmlns:th="http://www.thymeleaf.org"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <title>Add Company</title> 
+</head> 
+<body> 
+<div> 
+    <h2>ADD COMPANY</h2> 
+    <form th:action="@{/company/save}" th:object="${company}" method="post"> 
+        <p> 
+            <label>Company Name: </label> 
+            <input type="text" th:field="*{name}" required/> 
+        </p> 
+        <p> 
+            <label>Company Image: </label> 
+            <input type="text" th:field="*{image}" required/> 
+        </p> 
+        <p class="form-group"> 
+            <label>Company Address: </label> 
+            <input type="text" th:field="*{address}" required/> 
+        </p> 
+        <p> 
+            <button type="submit">ADD</button> 
+        </p> 
+    </form> 
+</div> 
+</body> 
+</html>

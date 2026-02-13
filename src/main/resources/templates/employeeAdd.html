@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="layout">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Add Employee</title>
+</head>
+
+<body>
+  <div layout:fragment="content">
+    <h2>ADD EMPLOYEE</h2>
+    <form th:action="'/save'" th:object="${employee}" method="post">
+      <p>
+        <label>Employee name: </label>
+        <input type="text" th:field="*{name}">
+      </p>
+      <p>
+        <label>Employee age: </label>
+        <input type="number" th:field="*{age}">
+      </p>
+      <p class="form-group">
+        <label>Employee image: </label>
+        <input type="text" th:field="*{image}">
+      </p>
+      <p class="form-group">
+        <label>Employee address </label>
+        <input type="text" th:field="*{address}">
+      </p>
+      <p class="form-group">
+        <label>Company</label>
+        <select class="form-select" th:field="*{company}">
+          <option th:each="company : ${companies}" th:value="${company.id}" th:text="${company.name}"></option>
+        </select>
+      </p>
+      <p>
+        <button type="submit">ADD</button>
+      </p>
+    </form>
+  </div>
+</body>
+
+</html>

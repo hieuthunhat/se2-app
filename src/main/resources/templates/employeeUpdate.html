@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="layout">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Edit Employee</title>
+</head>
+
+<body>
+  <div layout:fragment="content">
+    <h2>UPDATE EMPLOYEE</h2>
+    <form method="post" action="/save" th:object="${employee}">
+      <input type="hidden" th:field="*{id}" />
+      <p>
+        <label>Employee name:</label>
+        <input class="form-control" type="text" th:field="*{name}" />
+      </p>
+      <p>
+      </p>
+      <label>Employee age:</label>
+      <input class="form-control" type="number" th:field="*{age}" />
+      <p class="form-group">
+        <label>Employee image:<br>
+          <img th:src="*{image}" width="100" height="100" />
+          <input class="form-control" type="text" th:field="*{image}" />
+        </label>
+      </p>
+      <p class="form-group">
+        <label>Employee address:
+          <input class="form-control" type="text" th:field="*{address}" />
+        </label>
+      </p>
+      <p>
+        <button type="submit">UPDATE</button>
+      </p>
+    </form>
+  </div>
+</body>
+
+</html>
